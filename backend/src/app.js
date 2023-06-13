@@ -25,4 +25,39 @@ app.post('/subtraction', (req, res) => {
     return res.status(200).json({ result:result });
 });
 
+app.get('/info', (req, res) => {
+  const estudiante1 = {
+    nombre: 'Erwin Fernando',
+    apellido: 'Vásquez Peñate',
+    carnet: '202001534'
+  };
+
+  const estudiante2 = {
+    nombre: 'Sergie Daniel',
+    apellido: 'Arizandieta Yol',
+    carnet: '202000119'
+  };
+
+  const estudiante3 = {
+    nombre: 'Kevin Steve',
+    apellido: 'Martinez Lemus',
+    carnet: '202004816'
+  };
+
+  const estudiante4 = {
+    nombre: 'Kevin Golwer Enrique',
+    apellido: 'Ruiz Barbales',
+    carnet: '201603009'
+  };
+
+  const data = {
+    estudiante1: estudiante1,
+    estudiante2: estudiante2,
+    estudiante3: estudiante3,
+    estudiante4: estudiante4
+  };
+
+   return res.status(200).json(data);
+});
+
 module.exports = app;
