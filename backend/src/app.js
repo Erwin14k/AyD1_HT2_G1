@@ -72,4 +72,31 @@ app.get('/info', (req, res) => {
    return res.status(200).json(data);
 });
 
+app.post('/prime', (req, res) => {
+  const { num1} = req.body;
+
+  // Verify a valid number
+  if (typeof num1 !== 'number') {
+    return res.status(400).json({ error: 'Error, invalid number, try again!!' });
+  }
+
+  // Verify if is a primer number
+  const isPrime= (num) => {
+    if (num <= 1) {
+      return false;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const result = isPrime(num1);
+
+  return res.status(200).json({ isPrime: result});
+});
+
+
 module.exports = app;
